@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "server": "bun packages/server/index.ts",
-    "dev": "bun --watch packages/server/index.ts",
+    "server": "bun --cwd packages/server index.ts",
+    "dev": "bun --cwd packages/server --watch index.ts",
     "client": "bun --cwd packages/client dev",
     "client:build": "bun --cwd packages/client build",
     "client:preview": "bun --cwd packages/client preview"
