@@ -1,15 +1,46 @@
 # app-bun
 
-To install dependencies:
+Monorepo with two workspace packages:
+
+- packages/server: Express API (Bun + TypeScript)
+- packages/client: React app (Vite + TypeScript)
+
+## Install
+
+Run once from the repository root:
 
 ```bash
 bun install
 ```
 
-To run:
+## Run from root
+
+Start server:
 
 ```bash
 bun run server
 ```
 
-This project was created using `bun init` in bun v1.3.14. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+Start server in watch mode:
+
+```bash
+bun run dev
+```
+
+Start client (Vite dev server):
+
+```bash
+bun run client
+```
+
+Build client:
+
+```bash
+bun run client:build
+```
+
+Preview client build:
+
+```bash
+bun run client:preview
+```

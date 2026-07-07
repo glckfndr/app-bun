@@ -1,15 +1,36 @@
 # server
 
-To install dependencies:
+Express server package.
 
-```bash
-bun install
+## Environment
+
+Create packages/server/.env and set values like:
+
+```env
+OPENAI_API_KEY=your_key_here
+PORT=3000
 ```
 
-To run:
+## Run from repository root
 
 ```bash
-bun --cwd packages/server index.ts
+bun run server
 ```
 
-This project was created using `bun init` in bun v1.3.14. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+Watch mode from root:
+
+```bash
+bun run dev
+```
+
+## Run from packages/server
+
+```bash
+bun run server
+```
+
+Watch mode locally:
+
+```bash
+bun run dev
+```
