@@ -14,7 +14,7 @@ function App() {
   }, []);
 
   return (
-    <div>{message}  </div>
+    <p>{message}</p>
   )
 }
 
