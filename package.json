@@ -1,15 +1,17 @@
 {
-  "name": "app-bun",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "dev": "bun run index.ts"
-  },
-  "workspaces": [
-    "packages/*"
-  ],
-  "devDependencies": {
-    "concurrently": "^10.0.3"
-  }
+   "name": "app-bun",
+   "module": "index.ts",
+   "type": "module",
+   "private": true,
+   "scripts": {
+      "dev": "bun run index.ts",
+      "format": "prettier --write ."
+   },
+   "workspaces": [
+      "packages/*"
+   ],
+   "devDependencies": {
+      "concurrently": "^10.0.3",
+      "prettier": "^3.9.5"
+   }
 }
