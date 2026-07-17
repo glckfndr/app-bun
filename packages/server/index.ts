@@ -36,18 +36,21 @@ app.post('/api/chat', async (req: Request, res: Response) => {
       res.status(400).json(parseResult.error.format());
       return;
    }
+   try {
+      const { prompt, conversation_id } = req.body;
+      const response = await client.responses.create({
+         model: 'gpt-4o-mini',
+         input: prompt,
+         temperature: 0.2,
+         max_output_tokens: 100,
+         previous_response_id: conversation.get(conversation_id) || undefined,
+      });
 
-   const { prompt, conversation_id } = req.body;
-   const response = await client.responses.create({
-      model: 'gpt-4o-mini',
-      input: prompt,
-      temperature: 0.2,
-      max_output_tokens: 100,
-      previous_response_id: conversation.get(conversation_id) || undefined,
-   });
-
-   conversation.set(conversation_id, response.id);
-   res.json({ message: response.output_text });
+      conversation.set(conversation_id, response.id);
+      res.json({ message: response.output_text });
+   } catch (error) {
+      res.status(500).json({ error: 'Internal server error' });
+   }
 });
 app.listen(port, () => {
    console.log(`Server is running on http://localhost:${port}`);
